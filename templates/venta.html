@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simular Venta</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Simular Venta</h1>
+    <form action="/registrar-venta" method="post">
+        <label for="producto_id">Producto:</label>
+        <select id="producto_id" name="producto_id" required>
+            {% for producto in inventario %}
+            <option value="{{ producto.id }}">{{ producto.nombre }} ({{ producto.cantidad }} disponibles)</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="cantidad_vendida">Cantidad:</label>
+        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required>
+        <br>
+        <button type="submit">Registrar Venta</button>
+    </form>
+    <br>
+    <a href="/">Registrar Producto</a>
+    <br>
+    <a href="/inventario">Ver Inventario</a>
+</body>
+</html>
