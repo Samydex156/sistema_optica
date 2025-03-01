@@ -14,7 +14,7 @@ def get_db_connection():
         user=os.getenv("MYSQLUSER"),  # Cambia esto si usas otro usuario
         password=os.getenv("password"),  # Cambia esto por tu contraseña
         database=os.getenv("MYSQLDATABASE"),
-        port=int(os.getenv("MYSQLPORT"),3306)
+        port=int(os.getenv("MYSQLPORT","3306"))
     )
 
 # Montar la carpeta "static" para archivos CSS/JS
